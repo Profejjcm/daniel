@@ -7,20 +7,22 @@ public class CalcularPI {
 
      public static void main(String[] args) {
         MathContext mc = new MathContext(NUM_DIG);         
-        //meter en el método compute
+        compute(mc);
+    }
+
+    public static void compute(MathContext mc) {
+        //Seleccionar el codigo establecido entre los dos comentarios "//meter en el método compute", click derecho sobre la seleccion, pulsar la opción refactor, opcion "introduce",opcion "method" y rellenar con los datos datos que pide el examen.
         BigDecimal pi = new BigDecimal(0);
         BigDecimal limit = new BigDecimal(1).movePointLeft(NUM_DIG);
         boolean stop = false;
         for (int k = 0; !stop; k++) {
-            BigDecimal piK = piFunction(k, mc);
-            //meter en el método piFunction                
+            BigDecimal piK = piFunction(k, mc);           
             pi = pi.add(piK);
             if (piK.compareTo(limit) < 0) {
                 stop = true;
             }
         }
         System.out.println(pi.round(mc));
-        //meter en el método compute
     }
     public static final int NUM_DIG = 10; // Seleccionar el valor 10, click derecho, opción "Refactor" ,opcion "introduce", opcion "constant" y rellenar con las indicaciones del examen
 
